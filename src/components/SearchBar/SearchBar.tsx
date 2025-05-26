@@ -13,7 +13,12 @@ export default function SearchBar({ onSubmit }: SearchBarProps) {
     e.preventDefault();
     const trimmed = query.trim();
 
+console.log(`query: [${query}]`);
+console.log(`trimmed: [${trimmed}]`);
+
     if (!trimmed) {
+      console.log('Please enter your search query.');
+      
       toast.error('Please enter your search query.');
       return;
     }

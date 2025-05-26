@@ -1,5 +1,6 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
+import { Toaster } from 'react-hot-toast';
 import {type Movie } from "./types/movie";
 import { fetchMovies } from "./services/movieService";
 import SearchBar from "./components/SearchBar/SearchBar";
@@ -7,7 +8,7 @@ import MovieGrid from "./components/MovieGrid/MovieGrid";
 import Loader from "./components/Loader/Loader";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
 import MovieModal from "./components/MovieModal/MovieModal";
-
+import css from "./App.module.css"
 
 function App() {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -47,7 +48,8 @@ function App() {
   };
 
   return (
-    <>
+    < div className={css.app}>
+      <Toaster position="top-center" reverseOrder={false} />
       <SearchBar onSubmit={handleSearch} />
       {isLoading && <Loader />}
       {hasError && <ErrorMessage />}
@@ -57,7 +59,7 @@ function App() {
       {selectedMovie && (
         <MovieModal movie={selectedMovie} onClose={handleCloseModal} />
       )}
-    </>
+    </div>
   );
 }
 
