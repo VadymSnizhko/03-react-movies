@@ -1,4 +1,3 @@
-// src/components/MovieModal/MovieModal.tsx
 import { useEffect } from "react";
 import { type Movie } from "../../types/movie";
 import css from "./MovieModal.module.css";
